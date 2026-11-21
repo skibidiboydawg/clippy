@@ -28,6 +28,7 @@ Linux:
 
 - x86_64 system with FFmpeg and an X11 or XWayland session
 - ALSA, X11, and OpenGL runtime libraries; the install script handles dependencies on supported distros
+- Linux capture uses X11/XWayland. Native Wayland games need an X11/Xorg session (for example "GNOME on Xorg" or "Plasma X11") or must be run under XWayland; otherwise the recording will be black.
 
 ## Build
 
