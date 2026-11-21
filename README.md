@@ -53,7 +53,7 @@ The Windows commands build the app and package `clippy-setup.exe`. The Linux scr
 2. Play your game. Press `F5`, or your configured hotkey, to save the last few seconds.
 3. Open the CLIPS tab to watch, upload, or delete the clip.
 
-Change the hotkey by clicking `SAVE HOTKEY` and pressing a new key or combination. Toggle the microphone, audio sources, Discord presence, and update settings in the RECORDER tab.
+Change the hotkey by clicking `SAVE HOTKEY` and pressing a new key or combination. Toggle the microphone, audio sources, Discord presence, and update settings in the RECORDER tab. The `UPDATE` button in the header checks GitHub and installs the latest Windows or Linux release directly, then restarts Clippy.
 
 ## Releases
 
