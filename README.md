@@ -9,7 +9,7 @@ It is a native app. The interface uses Rust with `eframe`/`egui`; Windows uses a
 - Rolling buffer with a default `F5` hotkey. Saved clips go to `%LOCALAPPDATA%\clippy\clips` on Windows or `~/.local/share/clippy/clips` on Linux.
 - Four quality presets: Low (720p30), Medium (720p60), High (1080p60), and Custom (any even resolution, 1-240 FPS, and bitrate).
 - GPU encoder selection: NVIDIA NVENC, AMD AMF, Intel QSV, with x264 fallback on Windows; NVENC, VAAPI, QSV, and x264 on Linux.
-- Desktop capture with the original D3D11 `ddagrab` path (default) or Windows.Graphics.Capture (`gfxcapture`) on Windows, and X11/XWayland capture on Linux.
+- Desktop capture with native Windows.Graphics.Capture (`gfxcapture`/WGC) by default or D3D11 `ddagrab` as a switchable option on Windows; exclusive-fullscreen DXGI mode changes reattach capture immediately. Linux uses X11/XWayland capture.
 - System audio, optional microphone input, per-app volume sliders, and a default microphone resolved from the OS.
 - CLIPS tab with thumbnails, an in-app player, and buttons to play, upload, or delete a clip.
 - Catbox-only uploads with progress, speed, and ETA. Links are copied to the clipboard when auto-upload is enabled.
