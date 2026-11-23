@@ -6,7 +6,7 @@ It is a native app. The interface uses Rust with `eframe`/`egui`; Windows uses a
 
 ## Features
 
-- In-RAM GPU-encoded replay ring with strict 1-second closed GOPs. No `.ts` segments are written while capture is live; `F5` pipes the newest GOP fragments straight into a fast stream-copy remux. Saved clips go to `%LOCALAPPDATA%\clippy\clips` on Windows or `~/.local/share/clippy/clips` on Linux.
+- Rolling buffer with a default `F5` hotkey. OBS-style pacing keeps real capture frames, duplicates stale frames only on the output clock with advancing timestamps, and uses 1-second closed GOPs so clips stay keyframe-aligned and remux with stream copy. Saved clips go to `%LOCALAPPDATA%\clippy\clips` on Windows or `~/.local/share/clippy/clips` on Linux.
 - Four quality presets: Low (720p30), Medium (720p60), High (1080p60), and Custom (any even resolution, 1-240 FPS, and bitrate).
 - GPU encoder selection: NVIDIA NVENC, AMD AMF, Intel QSV, with x264 fallback on Windows; NVENC, VAAPI, QSV, and x264 on Linux.
 - Desktop capture on Windows uses D3D11 `ddagrab` for windowed apps/desktop and automatically switches to native Windows.Graphics.Capture (`gfxcapture`/WGC) targeted at the detected fullscreen/borderless game window. WGC reattaches on DXGI mode changes; D3D11 can also be forced in Settings. Linux uses X11/XWayland capture.
@@ -66,7 +66,7 @@ The Linux archive contains the binary, assets, install script, desktop launcher,
 
 ## Files
 
-Configuration and clips live under `%LOCALAPPDATA%\clippy` on Windows and `~/.local/share/clippy` on Linux. The replay ring is memory-only, so there are no rolling segment files to clean up; saved clips stay until you remove them.
+Configuration, rolling segments, and clips live under `%LOCALAPPDATA%\clippy` on Windows and `~/.local/share/clippy` on Linux. Only old rolling segments are deleted automatically; saved clips stay until you remove them.
 
 ## Licenses
 
